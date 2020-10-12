@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"com.framework.core","l":"BasePage"},{"p":"com.framework.core","l":"BaseTest"},{"p":"com.pageobjects","l":"CartOverview"},{"p":"com.pageobjects","l":"ProductOverview"},{"p":"com.pageobjects","l":"RestAssureAPIrequests"},{"p":"com.framework.tests","l":"TestPartOne"}]

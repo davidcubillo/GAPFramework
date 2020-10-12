@@ -46,6 +46,7 @@ public class ProductOverview extends BasePage {
 	 * 
 	 * @param cartCount
 	 * @param subtotal
+	 * @return productSubtotalandCount
 	 */
 	public String[] isThePageLoadedandProductDisplayed(String productName) throws InterruptedException {
 		String url = basicUrl + productName;

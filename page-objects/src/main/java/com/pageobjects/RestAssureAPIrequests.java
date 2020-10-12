@@ -55,24 +55,29 @@ public class RestAssureAPIrequests {
 	/**
 	 * Removing the product via API and getting the status code from the JSON
 	 * Response
+	 * 
 	 * @return None
 	 */
 	public void removeProductFromPage(String productId) {
-
-		RestAssured.baseURI = url;
-		System.out.println("Removing the product");
-		Response response = null;
-
 		try {
-			response = RestAssured.given().auth().preemptive().basic(username, password)
-					.header("Accept", ContentType.JSON.getAcceptHeader()).header("consumer_key", "consumer_secret")
-					.contentType(ContentType.JSON).delete("/" + productId + "?force=true");
+			RestAssured.baseURI = url;
+			System.out.println("Removing the product");
+			Response response = null;
+
+			try {
+				response = RestAssured.given().auth().preemptive().basic(username, password)
+						.header("Accept", ContentType.JSON.getAcceptHeader()).header("consumer_key", "consumer_secret")
+						.contentType(ContentType.JSON).delete("/" + productId + "?force=true");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			assertEquals(response.getStatusCode(), 200, "Status code is not right");
+			System.out.println("The Status Code is correct :" + response.getStatusCode());
+			System.out.println("Product deleted with the Id " + productId);
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println(e);
 		}
 
-		System.out.println("Response :" + response.asString());
-		assertEquals(response.getStatusCode(), 200, "Status code is not right");
-		System.out.println("The Status Code is correct :" + response.getStatusCode());
 	}
 }
